@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.4 (452971)"/><meta name="altitude" content="28.03310203552246"/><meta name="author" content="wenhulove333@163.com"/><meta name="created" content="2016-01-05 23:02:27 +0000"/><meta name="latitude" content="30.17249888168517"/><meta name="longitude" content="120.1422138707284"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2016-02-21 08:56:45 +0000"/><title>PHP Installation for Nginx 1.4.x on Unix systems   &lt;http://php.net/manual/en/install.unix.nginx.php&gt;</title></head><body>
+<div>
+<div style="font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+<div><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;"><br/></span></span></span></div>
+<div style=""><a href="http://php.net/manual/en/install.unix.nginx.php">http://php.net/manual/en/install.unix.nginx.php</a></div>
+<div style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;"><br/></span></span></span></div>
+<div style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">This documentation will cover installing and configuring PHP with PHP-FPM for a Nginx 1.4.x HTTP server.</span></span></span></div>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">This guide will assume that you have built Nginx from source and therefore all binaries and configuration files are located at <em style="text-rendering: optimizelegibility; font-weight: normal; font-style: italic;">/usr/local/nginx</em>. If this is not the case and you have obtained Nginx through other means then please refer to the <a href="http://wiki.nginx.org/Main" style="border-bottom-width: 1px; border-bottom-style: solid; text-decoration: none; color: rgb(51, 102, 153);">» Nginx Wiki</a> in order to translate this manual to your setup.</span></span></span></p>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">This guide will cover the basics of configuring an Nginx server to process PHP applications and serve them on port 80, it is recommended that you study the Nginx and PHP-FPM documentation if you wish to optimise your setup past the scope of this documentation.</span></span></span></p>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">Please note that throughout this documentation version numbers have been replaced with an 'x' to ensure this documentation stays correct in the future, please replace these as necessary with the corresponding version numbers.</span></span></span></p>
+<ol type="1" style=" padding: 0px; list-style-type: decimal;">
+<li>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">It is recomended that you visit the Nginx Wiki <a href="http://wiki.nginx.org/Install" style="border-bottom-width: 1px; border-bottom-style: solid; text-decoration: none; color: rgb(51, 102, 153);">» install</a> page in order to obtain and install Nginx on your system.</span></span></span></p>
+</li>
+<li>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">Obtain and unpack the PHP source:</span></span></span></p>
+<div style="">
+<div style=" box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; border-radius: 0px 0px 2px 2px; padding: 0.75rem; background-color: rgb(255, 255, 255);">
+<div>
+<pre style="white-space: pre-wrap;">
+<span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">
+tar zxf php-x.x.x
+
+</span></span></span>
+</pre></div>
+</div>
+</div>
+</li>
+<li>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">Configure and build PHP. This is where you customize PHP with various options, like which extensions will be enabled. Run ./configure --help for a list of available options. In our example we'll do a simple configure with PHP-FPM and MySQL support.</span></span></span></p>
+<div style="">
+<div style=" box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; border-radius: 0px 0px 2px 2px; padding: 0.75rem; background-color: rgb(255, 255, 255);">
+<div>
+<pre style="white-space: pre-wrap;">
+<span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">
+cd ../php-x.x.x
+./configure --enable-fpm --with-mysql
+make
+sudo make install
+
+</span></span></span>
+</pre></div>
+</div>
+</div>
+</li>
+<li>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">Obtain and move configuration files to their correct locations</span></span></span></p>
+<div style="">
+<div style=" box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; border-radius: 0px 0px 2px 2px; padding: 0.75rem; background-color: rgb(255, 255, 255);">
+<div>
+<pre style="white-space: pre-wrap;">
+<span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">
+cp php.ini-development /usr/local/php/php.ini
+cp /usr/local/etc/php-fpm.conf.default /usr/local/etc/php-fpm.conf
+cp sapi/fpm/php-fpm /usr/local/bin
+
+</span></span></span>
+</pre></div>
+</div>
+</div>
+</li>
+<li>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">It is important that we prevent Nginx from passing requests to the PHP-FPM backend if the file does not exists, allowing us to prevent arbitrarily script injection.</span></span></span></p>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">We can fix this by setting the <a href="http://php.net/manual/en/ini.core.php#ini.cgi.fix-pathinfo" style="border-bottom-width: 1px; border-bottom-style: solid; text-decoration: none; color: rgb(51, 102, 153);">cgi.fix_pathinfo</a> directive to <em style="text-rendering: optimizelegibility; font-weight: normal; font-style: italic;">0</em> within our php.ini file.</span></span></span></p>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">Load up php.ini:</span></span></span></p>
+<div style="">
+<div style=" box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; border-radius: 0px 0px 2px 2px; padding: 0.75rem; background-color: rgb(255, 255, 255);">
+<div>
+<pre style="white-space: pre-wrap;">
+<span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">
+vim /usr/local/php/php.ini
+
+</span></span></span>
+</pre></div>
+</div>
+</div>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">Locate <em style="text-rendering: optimizelegibility; font-weight: normal; font-style: italic;">cgi.fix_pathinfo=</em> and modify it as follows:</span></span></span></p>
+<div style="">
+<div style=" box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; border-radius: 0px 0px 2px 2px; padding: 0.75rem; background-color: rgb(255, 255, 255);">
+<div>
+<pre style="white-space: pre-wrap;">
+<span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">
+cgi.fix_pathinfo=0
+
+</span></span></span>
+</pre></div>
+</div>
+</div>
+</li>
+<li>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">php-fpm.conf must be modified to specify that php-fpm must run as the user www-data and the group www-data before we can start the service:</span></span></span></p>
+<div style="">
+<div style=" box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; border-radius: 0px 0px 2px 2px; padding: 0.75rem; background-color: rgb(255, 255, 255);">
+<div>
+<pre style="white-space: pre-wrap;">
+<span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">
+vim /usr/local/etc/php-fpm.conf
+
+</span></span></span>
+</pre></div>
+</div>
+</div>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">Find and modify the following:</span></span></span></p>
+<div style="">
+<div style=" box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; border-radius: 0px 0px 2px 2px; padding: 0.75rem; background-color: rgb(255, 255, 255);">
+<div>
+<pre style="white-space: pre-wrap;">
+<span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">
+; Unix user/group of processes
+; Note: The user is mandatory. If the group is not set, the default user's group
+;       will be used.
+user = www-data
+group = www-data
+
+</span></span></span>
+</pre></div>
+</div>
+</div>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">The php-fpm service can now be started:</span></span></span></p>
+<div style="">
+<div style=" box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; border-radius: 0px 0px 2px 2px; padding: 0.75rem; background-color: rgb(255, 255, 255);">
+<div>
+<pre style="white-space: pre-wrap;">
+<span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">
+/usr/local/bin/php-fpm
+
+</span></span></span>
+</pre></div>
+</div>
+</div>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">This guide will not configure php-fpm any further, if you are interested in further configuring php-fpm then please consult the documentation.</span></span></span></p>
+</li>
+<li>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">Nginx must now be configured to support the processing of PHP applications:</span></span></span></p>
+<div style="">
+<div style="">
+<div>
+<pre style="white-space: pre-wrap;">
+<span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">
+vim /usr/local/nginx/conf/nginx.conf
+
+</span></span></span>
+</pre></div>
+</div>
+</div>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">Modify the default location block to be aware it must attempt to serve .php files:</span></span></span></p>
+<div style="">
+<div style="">
+<div style="box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; border-radius: 0px 0px 2px 2px; padding: 0.75rem; background-color: rgb(255, 255, 255);">
+<pre style="white-space: pre-wrap;">
+<span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">
+location / {
+    root   html;
+    index  index.php index.html index.htm;
+}
+</span></span></span>
+</pre></div>
+</div>
+</div>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">The next step is to ensure that .php files are passed to the PHP-FPM backend. Below the commented default PHP location block, enter the following:</span></span></span></p>
+<div style="">
+<div style="">
+<div style="box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; border-radius: 0px 0px 2px 2px; padding: 0.75rem; background-color: rgb(255, 255, 255);">
+<pre style="white-space: pre-wrap;">
+<span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">
+location ~* \.php$ {
+    fastcgi_index   index.php;
+    fastcgi_pass    127.0.0.1:9000;
+    include         fastcgi_params;
+    fastcgi_param   SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+    fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;
+}
+</span></span></span>
+</pre></div>
+</div>
+</div>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">Restart Nginx.</span></span></span></p>
+<div style="">
+<div style=" box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; border-radius: 0px 0px 2px 2px; padding: 0.75rem; background-color: rgb(255, 255, 255);">
+<div>
+<pre style="white-space: pre-wrap;">
+<span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">
+sudo /usr/local/nginx/sbin/nginx -s stop
+sudo /usr/local/nginx/sbin/nginx
+
+</span></span></span>
+</pre></div>
+</div>
+</div>
+</li>
+<li>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">Create a test file</span></span></span></p>
+<div style="">
+<div style=" box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; border-radius: 0px 0px 2px 2px; padding: 0.75rem; background-color: rgb(255, 255, 255);">
+<div>
+<pre style="white-space: pre-wrap;">
+<span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">
+rm /usr/local/nginx/html/index.html
+echo "&lt;?php phpinfo(); ?&gt;" &gt;&gt; /usr/local/nginx/html/index.php
+
+</span></span></span>
+</pre></div>
+</div>
+</div>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">Now navigate to <a href="http://localhost">http://localhost</a>. The phpinfo() should now be shown.</span></span></span></p>
+</li>
+</ol>
+<p style=""><span style="color: rgb(51, 51, 51);"><span style="font-size: 16px;"><span style="font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif;">Following the steps above you will have a running Nginx web server with support for PHP as a <em style="text-rendering: optimizelegibility; font-weight: normal; font-style: italic;">SAPI</em> module. Of course there are many more configuration options available for Nginx and PHP. For more information type<strong style="text-rendering: optimizelegibility; font-weight: 500; font-style: normal;">./configure --help</strong> in the corresponding source tree.</span></span></span></p>
+</div>
+<div><span style=" top: 8px; right: 12px; text-align: right; z-index: 1;"><a href="http://php.net/manual/add-note.php?sect=install.unix.nginx&amp;redirect=http://php.net/manual/en/install.unix.nginx.php" style="border-bottom-width: 1px; border-bottom-style: solid; text-decoration: none; color: rgb(51, 102, 153);"><img src="PHP%20Installation%20for%20Nginx%201.4.x%20on%20Unix%20systems%20%C2%A0%20%3Chttp%3A__php.net_manual_en_install.unix.nginx.php%3E.resources/EB931B49-4579-4F77-8097-ECDCB9316AB2.png" height="24" width="24"/> <small style="font-size: 0.75rem;">add a note</small></a></span>
+<h3 style="overflow: hidden; text-rendering: optimizelegibility; font-size: 1.25rem; font-weight: 500; color: rgb(121, 56, 98); clear: both;">User Contributed Notes <span style="vertical-align: text-top; padding: 0.25rem 0.375rem; font-size: 0.75rem; color: rgb(255, 255, 255); border-radius: 4px; background-color: rgb(121, 56, 98);">4 notes</span></h3>
+</div>
+</div>
+<div>
+<div style="">
+<div style="float: left;">
+<div style="float: left;"><a href="http://php.net/manual/vote-note.php?id=118408&amp;page=install.unix.nginx&amp;vote=up" title="Vote up!" style="border-bottom-width: 10px; border-bottom-style: solid; border-bottom-color: rgb(153, 153, 153); text-decoration: none; color: rgb(51, 102, 153); overflow: hidden; border-left-width: 8px; border-left-style: solid; border-left-color: transparent; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; transition: border 0.4s; -webkit-transition: border 0.4s;">up</a></div>
+<div style="float: right;"><a href="http://php.net/manual/vote-note.php?id=118408&amp;page=install.unix.nginx&amp;vote=down" title="Vote down!" style="border-width: 10px 8px 0px; text-decoration: none; color: rgb(51, 102, 153); overflow: hidden; border-left-style: solid; border-left-color: transparent; border-right-style: solid; border-right-color: transparent; transition: border 0.4s; -webkit-transition: border 0.4s; border-top-style: solid; border-top-color: rgb(153, 153, 153);">down</a></div>
+<div title="100% like this..." style="float: right; padding: 0px 0.3rem; color: rgb(51, 51, 51);">1</div>
+</div>
+<a href="http://php.net/manual/en/install.unix.nginx.php#118408" style="border-bottom-width: 0px; text-decoration: none; color: rgb(51, 51, 51); font-size: 1.125rem;"><strong style="text-rendering: optimizelegibility; font-weight: bolder; font-style: normal;"><em style="text-rendering: optimizelegibility; font-weight: normal; font-style: normal;">nguyentienlong88 at gmail dot com</em></strong></a><a href="http://php.net/manual/en/install.unix.nginx.php#118408" style="border-bottom-style: none; text-decoration: none; color: transparent;"> ¶</a>
+<div title="2015-12-02 07:38" style="float: right; text-align: right; color: rgb(102, 102, 102);"><strong style="text-rendering: optimizelegibility; font-weight: normal; font-style: normal;">1 month ago</strong></div>
+<div style="padding: 0.75rem; border-radius: 0px 0px 2px 2px; transition: opacity 0.4s; -webkit-transition: opacity 0.4s; box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; background-color: rgb(255, 255, 255);">
+<div style="text-align: left;"><code style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 0.875rem; font-family: 'Fira Mono', 'Source Code Pro', monospace; word-wrap: break-word;"><span style="color: black; background-color: transparent;">at step 3, if there is no configure script yet, you need to rebuiding configure script using this command:<br/>
+   <br/>
+./buildconf --force</span></code></div>
+</div>
+</div>
+<div style="">
+<div style="float: left;">
+<div style="float: left;"><a href="http://php.net/manual/vote-note.php?id=118527&amp;page=install.unix.nginx&amp;vote=up" title="Vote up!" style="border-bottom-width: 10px; border-bottom-style: solid; border-bottom-color: rgb(153, 153, 153); text-decoration: none; color: rgb(51, 102, 153); overflow: hidden; border-left-width: 8px; border-left-style: solid; border-left-color: transparent; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; transition: border 0.4s; -webkit-transition: border 0.4s;">up</a></div>
+<div style="float: right;"><a href="http://php.net/manual/vote-note.php?id=118527&amp;page=install.unix.nginx&amp;vote=down" title="Vote down!" style="border-width: 10px 8px 0px; text-decoration: none; color: rgb(51, 102, 153); overflow: hidden; border-left-style: solid; border-left-color: transparent; border-right-style: solid; border-right-color: transparent; transition: border 0.4s; -webkit-transition: border 0.4s; border-top-style: solid; border-top-color: rgb(153, 153, 153);">down</a></div>
+<div title="no votes..." style="float: right; padding: 0px 0.3rem; color: rgb(51, 51, 51);">0</div>
+</div>
+<a href="http://php.net/manual/en/install.unix.nginx.php#118527" style="border-bottom-width: 0px; text-decoration: none; color: rgb(51, 51, 51); font-size: 1.125rem;"><strong style="text-rendering: optimizelegibility; font-weight: bolder; font-style: normal;"><em style="text-rendering: optimizelegibility; font-weight: normal; font-style: normal;">junlong666 at gmail dot com</em></strong></a><a href="http://php.net/manual/en/install.unix.nginx.php#118527" style="border-bottom-style: none; text-decoration: none; color: transparent;"> ¶</a>
+<div title="2015-12-21 09:50" style="float: right; text-align: right; color: rgb(102, 102, 102);"><strong style="text-rendering: optimizelegibility; font-weight: normal; font-style: normal;">15 days ago</strong></div>
+<div style="padding: 0.75rem; border-radius: 0px 0px 2px 2px; transition: opacity 0.4s; -webkit-transition: opacity 0.4s; box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; background-color: rgb(255, 255, 255);">
+<div style="text-align: left;"><code style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 0.875rem; font-family: 'Fira Mono', 'Source Code Pro', monospace; word-wrap: break-word;"><span style="color: black; background-color: transparent;">When I tried to install PHP-7.0.1, i got the following warning at step 3:<br/>
+<br/>
+configure: WARNING: unrecognized options: --with-mysql<br/>
+<br/>
+and other installation guide may have similar issues —— doing a configure with MySQL support (ext/mysql) in PHP 7. The extension was deprecated in the recent version<br/>
+<br/>
+<a href="https://wiki.php.net/rfc/remove_deprecated_functionality_in_php7" rel="nofollow" target="_blank" style="border-bottom-width: 1px; border-bottom-style: solid; text-decoration: none; color: rgb(51, 102, 153);">https://wiki.php.net/rfc/remove_deprecated_functionality_in_php7</a><br/>
+<br/>
+then you could use ext/mysqli or ext/pdo_mysql instead, for example, configure PHP 7.x with:<br/>
+./configure --enable-fpm --with-mysqli</span></code></div>
+</div>
+</div>
+<div style="">
+<div style="float: left;">
+<div style="float: left;"><a href="http://php.net/manual/vote-note.php?id=118520&amp;page=install.unix.nginx&amp;vote=up" title="Vote up!" style="border-bottom-width: 10px; border-bottom-style: solid; border-bottom-color: rgb(153, 153, 153); text-decoration: none; color: rgb(51, 102, 153); overflow: hidden; border-left-width: 8px; border-left-style: solid; border-left-color: transparent; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; transition: border 0.4s; -webkit-transition: border 0.4s;">up</a></div>
+<div style="float: right;"><a href="http://php.net/manual/vote-note.php?id=118520&amp;page=install.unix.nginx&amp;vote=down" title="Vote down!" style="border-width: 10px 8px 0px; text-decoration: none; color: rgb(51, 102, 153); overflow: hidden; border-left-style: solid; border-left-color: transparent; border-right-style: solid; border-right-color: transparent; transition: border 0.4s; -webkit-transition: border 0.4s; border-top-style: solid; border-top-color: rgb(153, 153, 153);">down</a></div>
+<div title="no votes..." style="float: right; padding: 0px 0.3rem; color: rgb(51, 51, 51);">0</div>
+</div>
+<a href="http://php.net/manual/en/install.unix.nginx.php#118520" style="border-bottom-width: 0px; text-decoration: none; color: rgb(51, 51, 51); font-size: 1.125rem;"><strong style="text-rendering: optimizelegibility; font-weight: bolder; font-style: normal;"><em style="text-rendering: optimizelegibility; font-weight: normal; font-style: normal;">Akash Kumar Sharma</em></strong></a><a href="http://php.net/manual/en/install.unix.nginx.php#118520" style="border-bottom-style: none; text-decoration: none; color: transparent;"> ¶</a>
+<div title="2015-12-20 08:48" style="float: right; text-align: right; color: rgb(102, 102, 102);"><strong style="text-rendering: optimizelegibility; font-weight: normal; font-style: normal;">16 days ago</strong></div>
+<div style="padding: 0.75rem; border-radius: 0px 0px 2px 2px; transition: opacity 0.4s; -webkit-transition: opacity 0.4s; box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; background-color: rgb(255, 255, 255);">
+<div style="text-align: left;"><code style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 0.875rem; font-family: 'Fira Mono', 'Source Code Pro', monospace; word-wrap: break-word;"><span style="color: black; background-color: transparent;">If you get "File not found" error then add "root ROOT_DIR_LOCATION" directive to PHP location block i.e. "location ~* \.php$ { }" , where ROOT_DIR_LOCATION is root directory like "/usr/share/nginx/html" .</span></code></div>
+</div>
+</div>
+</div>
+<div>
+<div style="float: left;">
+<div style="float: left;"><a href="http://php.net/manual/vote-note.php?id=118414&amp;page=install.unix.nginx&amp;vote=up" title="Vote up!" style="border-bottom-width: 10px; border-bottom-style: solid; border-bottom-color: rgb(153, 153, 153); text-decoration: none; color: rgb(51, 102, 153); overflow: hidden; border-left-width: 8px; border-left-style: solid; border-left-color: transparent; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; transition: border 0.4s; -webkit-transition: border 0.4s;">up</a></div>
+<div style="float: right;"><a href="http://php.net/manual/vote-note.php?id=118414&amp;page=install.unix.nginx&amp;vote=down" title="Vote down!" style="border-width: 10px 8px 0px; text-decoration: none; color: rgb(51, 102, 153); overflow: hidden; border-left-style: solid; border-left-color: transparent; border-right-style: solid; border-right-color: transparent; transition: border 0.4s; -webkit-transition: border 0.4s; border-top-style: solid; border-top-color: rgb(153, 153, 153);">down</a></div>
+<div title="no votes..." style="float: right; padding: 0px 0.3rem; color: rgb(51, 51, 51);">0</div>
+</div>
+<a href="http://php.net/manual/en/install.unix.nginx.php#118414" style="border-bottom-width: 0px; text-decoration: none; color: rgb(51, 51, 51); font-size: 1.125rem;"><strong style="text-rendering: optimizelegibility; font-weight: bolder; font-style: normal;"><em style="text-rendering: optimizelegibility; font-weight: normal; font-style: normal;">nguyentienlong88 at gmail dot com</em></strong></a><a href="http://php.net/manual/en/install.unix.nginx.php#118414" style="border-bottom-style: none; text-decoration: none; color: transparent;"> ¶</a>
+<div title="2015-12-03 03:22" style="float: right; text-align: right; color: rgb(102, 102, 102);"><strong style="text-rendering: optimizelegibility; font-weight: normal; font-style: normal;">1 month ago</strong></div>
+<div style="padding: 0.75rem; border-radius: 0px 0px 2px 2px; transition: opacity 0.4s; -webkit-transition: opacity 0.4s; box-shadow: rgba(0, 0, 0, 0.14902) 0px 0px 0px 1px inset; background-color: rgb(255, 255, 255);">
+<div style="text-align: left;"><code style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 0.875rem; font-family: 'Fira Mono', 'Source Code Pro', monospace; word-wrap: break-word;"><span style="color: black; background-color: transparent;">at step 3, after command "sudo make install"<br/>
+if there is problem with <a href="http://pear.php.net">pear.php.net</a> (https). Need to change this line (from https to http) in Makefile</span></code></div>
+<div style="text-align: left;"><span style="font-family: 'Fira Mono', 'Source Code Pro', monospace;"><span style="font-size: 0.875rem;"><span style="background-color: transparent;">PEAR_INSTALLER_URL = </span><a href="http://pear.php.net/install-pear-nozlib.phar" rel="nofollow" target="_blank" style="border-bottom-width: 1px; border-bottom-style: solid; text-decoration: none; color: rgb(51, 102, 153);"><span style="background-color: transparent;"><span style="font-size: 0.875rem;">http://pear.php.net/install-pear-nozlib.phar</span></span></a></span></span></div>
+</div>
+</div>
+</body></html>
