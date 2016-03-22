@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<document type="BLUMIND" editor_version="3.2.902.24361" document_version="3.0.0.0">
+  <!--Create by Blumind, you can download it free from http://www.blumind.org-->
+  <information>
+    <author>Administrator</author>
+    <company>
+    </company>
+    <version>3.0</version>
+    <description>
+    </description>
+  </information>
+  <attributes>
+    <item name="editor_show_sidebar">True</item>
+  </attributes>
+  <charts active_chart="2">
+    <chart name="新页面 1" type="MindMap">
+      <remark>
+      </remark>
+      <layout>MIND_MAP</layout>
+      <style>
+        <back_color>White</back_color>
+        <fore_color>Black</fore_color>
+        <line_color>LightSlateGray</line_color>
+        <border_color>SlateGray</border_color>
+        <node_back_color>LightGray</node_back_color>
+        <node_fore_color>Black</node_fore_color>
+        <select_color>RoyalBlue</select_color>
+        <hover_color>MediumSlateBlue</hover_color>
+        <link_line_color>Green</link_line_color>
+        <widget_margin>1</widget_margin>
+        <picture_thumb_size>100, 100</picture_thumb_size>
+      </style>
+      <nodes>
+        <node id="1" text="UserA" x="735" y="378" width="64" height="41" text_b="12, 12, 40, 17">
+          <style>
+            <back_color>Silver</back_color>
+            <fore_color>Black</fore_color>
+            <border_color>Black</border_color>
+            <padding>12</padding>
+          </style>
+          <nodes>
+            <node id="2" text="websits" x="603" y="388" width="52" height="21" text_b="2, 2, 48, 17" fold_btn_b="589, 392, 13, 13">
+              <nodes>
+                <node id="22" text="websitB" x="468" y="155" width="55" height="21" text_b="2, 2, 51, 17" />
+                <node id="3" text="pageTemplete" x="429" y="233" width="94" height="21" text_b="2, 2, 90, 17" fold_btn_b="415, 237, 13, 13">
+                  <nodes>
+                    <node id="4" text="srcTemplet2" x="268" y="186" width="81" height="21" text_b="2, 2, 77, 17" />
+                    <node id="5" text="pageTemplet2.html" x="225" y="217" width="124" height="21" text_b="2, 2, 120, 17" />
+                    <node id="6" text="srcTemplete1" x="261" y="248" width="88" height="21" text_b="2, 2, 84, 17" />
+                    <node id="7" text="pageTemplet1.html" x="225" y="279" width="124" height="21" text_b="2, 2, 120, 17" />
+                  </nodes>
+                  <lines>
+                    <line target="4" begin_side="Left" end_side="Right" begin_rect="416, 233, 107, 21" end_rect="268, 186, 81, 21" />
+                    <line target="5" begin_side="Left" end_side="Right" begin_rect="416, 233, 107, 21" end_rect="225, 217, 124, 21" />
+                    <line target="6" begin_side="Left" end_side="Right" begin_rect="416, 233, 107, 21" end_rect="261, 248, 88, 21" />
+                    <line target="7" begin_side="Left" end_side="Right" begin_rect="416, 233, 107, 21" end_rect="225, 279, 124, 21" />
+                  </lines>
+                </node>
+                <node id="8" text="websitA" x="468" y="465" width="55" height="21" text_b="2, 2, 51, 17" fold_btn_b="454, 469, 13, 13">
+                  <nodes>
+                    <node id="9" text="pagesC" x="336" y="310" width="52" height="21" text_b="2, 2, 48, 17" />
+                    <node id="10" text="pagesB" x="336" y="341" width="52" height="21" text_b="2, 2, 48, 17" />
+                    <node id="11" text="websitC.html" x="303" y="372" width="85" height="21" text_b="2, 2, 81, 17" />
+                    <node id="12" text="websitB.html" x="303" y="403" width="85" height="21" text_b="2, 2, 81, 17" />
+                    <node id="13" text="websitA.html" x="302" y="434" width="86" height="21" text_b="2, 2, 82, 17" />
+                    <node id="14" text="pagesA" x="335" y="543" width="53" height="21" text_b="2, 2, 49, 17" fold_btn_b="321, 547, 13, 13">
+                      <nodes>
+                        <node id="15" text="src3" x="223" y="465" width="32" height="21" text_b="2, 2, 28, 17" />
+                        <node id="16" text="page3.html" x="180" y="496" width="75" height="21" text_b="2, 2, 71, 17" />
+                        <node id="17" text="src2" x="223" y="527" width="32" height="21" text_b="2, 2, 28, 17" />
+                        <node id="18" text="page2.html" x="180" y="558" width="75" height="21" text_b="2, 2, 71, 17" />
+                        <node id="19" text="page1.html" x="180" y="589" width="75" height="21" text_b="2, 2, 71, 17" />
+                        <node id="20" text="src1" x="223" y="620" width="32" height="21" text_b="2, 2, 28, 17" />
+                      </nodes>
+                      <lines>
+                        <line target="15" begin_side="Left" end_side="Right" begin_rect="322, 543, 66, 21" end_rect="223, 465, 32, 21" />
+                        <line target="16" begin_side="Left" end_side="Right" begin_rect="322, 543, 66, 21" end_rect="180, 496, 75, 21" />
+                        <line target="17" begin_side="Left" end_side="Right" begin_rect="322, 543, 66, 21" end_rect="223, 527, 32, 21" />
+                        <line target="18" begin_side="Left" end_side="Right" begin_rect="322, 543, 66, 21" end_rect="180, 558, 75, 21" />
+                        <line target="19" begin_side="Left" end_side="Right" begin_rect="322, 543, 66, 21" end_rect="180, 589, 75, 21" />
+                        <line target="20" begin_side="Left" end_side="Right" begin_rect="322, 543, 66, 21" end_rect="223, 620, 32, 21" />
+                      </lines>
+                    </node>
+                  </nodes>
+                  <lines>
+                    <line target="9" begin_side="Left" end_side="Right" begin_rect="455, 465, 68, 21" end_rect="336, 310, 52, 21" />
+                    <line target="10" begin_side="Left" end_side="Right" begin_rect="455, 465, 68, 21" end_rect="336, 341, 52, 21" />
+                    <line target="11" begin_side="Left" end_side="Right" begin_rect="455, 465, 68, 21" end_rect="303, 372, 85, 21" />
+                    <line target="12" begin_side="Left" end_side="Right" begin_rect="455, 465, 68, 21" end_rect="303, 403, 85, 21" />
+                    <line target="13" begin_side="Left" end_side="Right" begin_rect="455, 465, 68, 21" end_rect="302, 434, 86, 21" />
+                    <line target="14" begin_side="Left" end_side="Right" begin_rect="455, 465, 68, 21" end_rect="335, 543, 53, 21" />
+                  </lines>
+                </node>
+              </nodes>
+              <lines>
+                <line target="22" begin_side="Left" end_side="Right" begin_rect="590, 388, 65, 21" end_rect="468, 155, 55, 21" />
+                <line target="3" begin_side="Left" end_side="Right" begin_rect="590, 388, 65, 21" end_rect="429, 233, 94, 21" />
+                <line target="8" begin_side="Left" end_side="Right" begin_rect="590, 388, 65, 21" end_rect="468, 465, 55, 21" />
+              </lines>
+            </node>
+            <node id="21" text="config.db" x="879" y="388" width="64" height="21" text_b="2, 2, 60, 17" />
+          </nodes>
+          <lines>
+            <line target="2" begin_side="Left" end_side="Right" begin_rect="735, 378, 64, 41" end_rect="603, 388, 52, 21" />
+            <line target="21" begin_side="Right" end_side="Left" begin_rect="735, 378, 64, 41" end_rect="879, 388, 64, 21" />
+          </lines>
+        </node>
+      </nodes>
+    </chart>
+    <chart name="UserA" type="MindMap">
+      <remark>
+      </remark>
+      <layout>MIND_MAP</layout>
+      <style>
+        <back_color>White</back_color>
+        <fore_color>Black</fore_color>
+        <line_color>LightSlateGray</line_color>
+        <border_color>SlateGray</border_color>
+        <node_back_color>LightGray</node_back_color>
+        <node_fore_color>Black</node_fore_color>
+        <select_color>RoyalBlue</select_color>
+        <hover_color>MediumSlateBlue</hover_color>
+        <link_line_color>Green</link_line_color>
+        <widget_margin>1</widget_margin>
+        <picture_thumb_size>100, 100</picture_thumb_size>
+      </style>
+      <nodes>
+        <node id="23" text="UserA" x="735" y="378" width="64" height="41" text_b="12, 12, 40, 17">
+          <style>
+            <back_color>Silver</back_color>
+            <fore_color>Black</fore_color>
+            <border_color>Black</border_color>
+            <padding>12</padding>
+          </style>
+          <nodes>
+            <node id="25" text="websits" x="603" y="388" width="52" height="21" text_b="2, 2, 48, 17" fold_btn_b="589, 392, 13, 13">
+              <nodes>
+                <node id="26" text="websitB" x="468" y="155" width="55" height="21" text_b="2, 2, 51, 17" />
+                <node id="27" text="pageTemplete" x="429" y="233" width="94" height="21" text_b="2, 2, 90, 17" fold_btn_b="415, 237, 13, 13">
+                  <nodes>
+                    <node id="28" text="srcTemplet2" x="268" y="186" width="81" height="21" text_b="2, 2, 77, 17" />
+                    <node id="29" text="pageTemplet2.html" x="225" y="217" width="124" height="21" text_b="2, 2, 120, 17" />
+                    <node id="30" text="srcTemplete1" x="261" y="248" width="88" height="21" text_b="2, 2, 84, 17" />
+                    <node id="31" text="pageTemplet1.html" x="225" y="279" width="124" height="21" text_b="2, 2, 120, 17" />
+                  </nodes>
+                  <lines>
+                    <line target="28" begin_side="Left" end_side="Right" begin_rect="416, 233, 107, 21" end_rect="268, 186, 81, 21" />
+                    <line target="29" begin_side="Left" end_side="Right" begin_rect="416, 233, 107, 21" end_rect="225, 217, 124, 21" />
+                    <line target="30" begin_side="Left" end_side="Right" begin_rect="416, 233, 107, 21" end_rect="261, 248, 88, 21" />
+                    <line target="31" begin_side="Left" end_side="Right" begin_rect="416, 233, 107, 21" end_rect="225, 279, 124, 21" />
+                  </lines>
+                </node>
+                <node id="32" text="websitA" x="468" y="465" width="55" height="21" text_b="2, 2, 51, 17" fold_btn_b="454, 469, 13, 13">
+                  <nodes>
+                    <node id="33" text="pagesC" x="336" y="310" width="52" height="21" text_b="2, 2, 48, 17" />
+                    <node id="34" text="pagesB" x="336" y="341" width="52" height="21" text_b="2, 2, 48, 17" />
+                    <node id="35" text="websitC.html" x="303" y="372" width="85" height="21" text_b="2, 2, 81, 17" />
+                    <node id="36" text="websitB.html" x="303" y="403" width="85" height="21" text_b="2, 2, 81, 17" />
+                    <node id="37" text="websitA.html" x="302" y="434" width="86" height="21" text_b="2, 2, 82, 17" />
+                    <node id="38" text="pagesA" x="335" y="543" width="53" height="21" text_b="2, 2, 49, 17" fold_btn_b="321, 547, 13, 13">
+                      <nodes>
+                        <node id="39" text="src3" x="223" y="465" width="32" height="21" text_b="2, 2, 28, 17" />
+                        <node id="40" text="page3.html" x="180" y="496" width="75" height="21" text_b="2, 2, 71, 17" />
+                        <node id="41" text="src2" x="223" y="527" width="32" height="21" text_b="2, 2, 28, 17" />
+                        <node id="42" text="page2.html" x="180" y="558" width="75" height="21" text_b="2, 2, 71, 17" />
+                        <node id="43" text="page1.html" x="180" y="589" width="75" height="21" text_b="2, 2, 71, 17" />
+                        <node id="44" text="src1" x="223" y="620" width="32" height="21" text_b="2, 2, 28, 17" />
+                      </nodes>
+                      <lines>
+                        <line target="39" begin_side="Left" end_side="Right" begin_rect="322, 543, 66, 21" end_rect="223, 465, 32, 21" />
+                        <line target="40" begin_side="Left" end_side="Right" begin_rect="322, 543, 66, 21" end_rect="180, 496, 75, 21" />
+                        <line target="41" begin_side="Left" end_side="Right" begin_rect="322, 543, 66, 21" end_rect="223, 527, 32, 21" />
+                        <line target="42" begin_side="Left" end_side="Right" begin_rect="322, 543, 66, 21" end_rect="180, 558, 75, 21" />
+                        <line target="43" begin_side="Left" end_side="Right" begin_rect="322, 543, 66, 21" end_rect="180, 589, 75, 21" />
+                        <line target="44" begin_side="Left" end_side="Right" begin_rect="322, 543, 66, 21" end_rect="223, 620, 32, 21" />
+                      </lines>
+                    </node>
+                  </nodes>
+                  <lines>
+                    <line target="33" begin_side="Left" end_side="Right" begin_rect="455, 465, 68, 21" end_rect="336, 310, 52, 21" />
+                    <line target="34" begin_side="Left" end_side="Right" begin_rect="455, 465, 68, 21" end_rect="336, 341, 52, 21" />
+                    <line target="35" begin_side="Left" end_side="Right" begin_rect="455, 465, 68, 21" end_rect="303, 372, 85, 21" />
+                    <line target="36" begin_side="Left" end_side="Right" begin_rect="455, 465, 68, 21" end_rect="303, 403, 85, 21" />
+                    <line target="37" begin_side="Left" end_side="Right" begin_rect="455, 465, 68, 21" end_rect="302, 434, 86, 21" />
+                    <line target="38" begin_side="Left" end_side="Right" begin_rect="455, 465, 68, 21" end_rect="335, 543, 53, 21" />
+                  </lines>
+                </node>
+              </nodes>
+              <lines>
+                <line target="26" begin_side="Left" end_side="Right" begin_rect="590, 388, 65, 21" end_rect="468, 155, 55, 21" />
+                <line target="27" begin_side="Left" end_side="Right" begin_rect="590, 388, 65, 21" end_rect="429, 233, 94, 21" />
+                <line target="32" begin_side="Left" end_side="Right" begin_rect="590, 388, 65, 21" end_rect="468, 465, 55, 21" />
+              </lines>
+            </node>
+            <node id="45" text="config.db" x="879" y="388" width="64" height="21" text_b="2, 2, 60, 17" />
+          </nodes>
+          <lines>
+            <line target="25" begin_side="Left" end_side="Right" begin_rect="735, 378, 64, 41" end_rect="603, 388, 52, 21" />
+            <line target="45" begin_side="Right" end_side="Left" begin_rect="735, 378, 64, 41" end_rect="879, 388, 64, 21" />
+          </lines>
+        </node>
+      </nodes>
+    </chart>
+    <chart name="UserA" type="MindMap">
+      <remark>
+      </remark>
+      <layout>MIND_MAP</layout>
+      <style>
+        <back_color>White</back_color>
+        <fore_color>Black</fore_color>
+        <line_color>LightSlateGray</line_color>
+        <border_color>SlateGray</border_color>
+        <node_back_color>LightGray</node_back_color>
+        <node_fore_color>Black</node_fore_color>
+        <select_color>RoyalBlue</select_color>
+        <hover_color>MediumSlateBlue</hover_color>
+        <link_line_color>Green</link_line_color>
+        <widget_margin>1</widget_margin>
+        <picture_thumb_size>100, 100</picture_thumb_size>
+      </style>
+      <nodes>
+        <node id="24" text="users" x="277" y="378" width="59" height="41" text_b="12, 12, 35, 17">
+          <style>
+            <back_color>Silver</back_color>
+            <fore_color>Black</fore_color>
+            <border_color>Black</border_color>
+            <padding>12</padding>
+          </style>
+          <nodes>
+            <node id="46" text="userC" x="155" y="347" width="42" height="21" text_b="2, 2, 38, 17" />
+            <node id="47" text="userB" x="156" y="428" width="41" height="21" text_b="2, 2, 37, 17" />
+            <node id="48" text="userA" x="416" y="347" width="42" height="21" text_b="2, 2, 38, 17" fold_btn_b="459, 351, 13, 13">
+              <nodes>
+                <node id="49" text="websits" x="538" y="347" width="52" height="21" text_b="2, 2, 48, 17" fold_btn_b="591, 351, 13, 13">
+                  <nodes>
+                    <node id="50" text="pagesC" x="670" y="130" width="52" height="21" text_b="2, 2, 48, 17" />
+                    <node id="51" text="pagesB" x="670" y="161" width="52" height="21" text_b="2, 2, 48, 17" />
+                    <node id="52" text="websitC.html" x="670" y="192" width="85" height="21" text_b="2, 2, 81, 17" />
+                    <node id="53" text="websitB.html" x="670" y="223" width="85" height="21" text_b="2, 2, 81, 17" />
+                    <node id="54" text="websitA.html" x="670" y="254" width="86" height="21" text_b="2, 2, 82, 17" />
+                    <node id="55" text="pagesA" x="670" y="363" width="53" height="21" text_b="2, 2, 49, 17" fold_btn_b="724, 367, 13, 13">
+                      <nodes>
+                        <node id="56" text="src3" x="803" y="285" width="32" height="21" text_b="2, 2, 28, 17" />
+                        <node id="57" text="page3.html" x="803" y="316" width="75" height="21" text_b="2, 2, 71, 17" />
+                        <node id="58" text="src2" x="803" y="347" width="32" height="21" text_b="2, 2, 28, 17" />
+                        <node id="59" text="page2.html" x="803" y="378" width="75" height="21" text_b="2, 2, 71, 17" />
+                        <node id="60" text="page1.html" x="803" y="409" width="75" height="21" text_b="2, 2, 71, 17" />
+                        <node id="61" text="src1" x="803" y="440" width="32" height="21" text_b="2, 2, 28, 17" />
+                      </nodes>
+                      <lines>
+                        <line target="56" begin_side="Right" end_side="Left" begin_rect="670, 363, 66, 21" end_rect="803, 285, 32, 21" />
+                        <line target="57" begin_side="Right" end_side="Left" begin_rect="670, 363, 66, 21" end_rect="803, 316, 75, 21" />
+                        <line target="58" begin_side="Right" end_side="Left" begin_rect="670, 363, 66, 21" end_rect="803, 347, 32, 21" />
+                        <line target="59" begin_side="Right" end_side="Left" begin_rect="670, 363, 66, 21" end_rect="803, 378, 75, 21" />
+                        <line target="60" begin_side="Right" end_side="Left" begin_rect="670, 363, 66, 21" end_rect="803, 409, 75, 21" />
+                        <line target="61" begin_side="Right" end_side="Left" begin_rect="670, 363, 66, 21" end_rect="803, 440, 32, 21" />
+                      </lines>
+                    </node>
+                    <node id="62" text="pageTemplete" x="670" y="518" width="94" height="21" text_b="2, 2, 90, 17" fold_btn_b="765, 522, 13, 13">
+                      <nodes>
+                        <node id="63" text="srcTemplet2" x="844" y="471" width="81" height="21" text_b="2, 2, 77, 17" />
+                        <node id="64" text="pageTemplet2.html" x="844" y="502" width="124" height="21" text_b="2, 2, 120, 17" />
+                        <node id="65" text="srcTemplete1" x="844" y="533" width="88" height="21" text_b="2, 2, 84, 17" />
+                        <node id="66" text="pageTemplet1.html" x="844" y="564" width="124" height="21" text_b="2, 2, 120, 17" />
+                      </nodes>
+                      <lines>
+                        <line target="63" begin_side="Right" end_side="Left" begin_rect="670, 518, 107, 21" end_rect="844, 471, 81, 21" />
+                        <line target="64" begin_side="Right" end_side="Left" begin_rect="670, 518, 107, 21" end_rect="844, 502, 124, 21" />
+                        <line target="65" begin_side="Right" end_side="Left" begin_rect="670, 518, 107, 21" end_rect="844, 533, 88, 21" />
+                        <line target="66" begin_side="Right" end_side="Left" begin_rect="670, 518, 107, 21" end_rect="844, 564, 124, 21" />
+                      </lines>
+                    </node>
+                  </nodes>
+                  <lines>
+                    <line target="50" begin_side="Right" end_side="Left" begin_rect="538, 347, 65, 21" end_rect="670, 130, 52, 21" />
+                    <line target="51" begin_side="Right" end_side="Left" begin_rect="538, 347, 65, 21" end_rect="670, 161, 52, 21" />
+                    <line target="52" begin_side="Right" end_side="Left" begin_rect="538, 347, 65, 21" end_rect="670, 192, 85, 21" />
+                    <line target="53" begin_side="Right" end_side="Left" begin_rect="538, 347, 65, 21" end_rect="670, 223, 85, 21" />
+                    <line target="54" begin_side="Right" end_side="Left" begin_rect="538, 347, 65, 21" end_rect="670, 254, 86, 21" />
+                    <line target="55" begin_side="Right" end_side="Left" begin_rect="538, 347, 65, 21" end_rect="670, 363, 53, 21" />
+                    <line target="62" begin_side="Right" end_side="Left" begin_rect="538, 347, 65, 21" end_rect="670, 518, 94, 21" />
+                  </lines>
+                </node>
+              </nodes>
+              <lines>
+                <line target="49" begin_side="Right" end_side="Left" begin_rect="416, 347, 55, 21" end_rect="538, 347, 52, 21" />
+              </lines>
+            </node>
+            <node id="67" text="config.db" x="416" y="645" width="64" height="21" text_b="2, 2, 60, 17" />
+          </nodes>
+          <lines>
+            <line target="46" begin_side="Left" end_side="Right" begin_rect="277, 378, 59, 41" end_rect="155, 347, 42, 21" />
+            <line target="47" begin_side="Left" end_side="Right" begin_rect="277, 378, 59, 41" end_rect="156, 428, 41, 21" />
+            <line target="48" begin_side="Right" end_side="Left" begin_rect="277, 378, 59, 41" end_rect="416, 347, 42, 21" />
+            <line target="67" begin_side="Right" end_side="Left" begin_rect="277, 378, 59, 41" end_rect="416, 645, 64, 21" />
+          </lines>
+        </node>
+      </nodes>
+    </chart>
+  </charts>
+</document>
